@@ -467,7 +467,7 @@
                     'from { width:' + Trex.config.WIDTH + 'px }' +
                     'to { width: ' + this.dimensions.WIDTH + 'px }' +
                     '}';
-                
+
                 // create a style sheet to put the keyframe rule in 
                 // and then place the style sheet in the html head    
                 var sheet = document.createElement('style');
@@ -796,6 +796,9 @@
 
             // Reset the time clock.
             this.time = getTimeStamp();
+
+            //Initialize scoreboard
+            this.initScoreboard();
         },
 
         stop: function () {
@@ -834,6 +837,41 @@
                 this.update();
             }
         },
+
+        /*
+            LOCAL STORAGE Scoreboard
+        */
+
+        initScoreboard: function () {
+            var doSave = confirm("Do you want to save your score?");
+            if (doSave) this.saveScoreboard();
+        },
+
+        saveScoreboard: function () {
+            var scoreboard = [];
+            try { scoreboard = localStorage.SCOREBOARD ? JSON.parse(localStorage.SCOREBOARD) : []; }
+            catch (ex) { localStorage.clear(); }
+
+            var name = prompt("Enter name: ");
+            var value = Math.ceil(this.distanceRan);
+
+            scoreboard.push({
+                Name: name,
+                Score: value
+            });
+
+            localStorage.SCOREBOARD = JSON.stringify(scoreboard);
+        },
+
+        retrieveScoreboard: function () {
+            var scoreboard = [];
+            try { scoreboard = localStorage.SCOREBOARD ? JSON.parse(localStorage.SCOREBOARD) : []; }
+            catch (ex) { localStorage.clear(); }
+
+
+        },
+
+
 
         /**
          * Pause the game if the tab is not in focus.
