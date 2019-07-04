@@ -848,9 +848,7 @@
         },
 
         saveScoreboard: function () {
-            var scoreboard = [];
-            try { scoreboard = localStorage.SCOREBOARD ? JSON.parse(localStorage.SCOREBOARD) : []; }
-            catch (ex) { localStorage.clear(); }
+            var scoreboard = this.retrieveScoreboard();
 
             var name = prompt("Enter name: ");
             var value = Math.ceil(this.distanceRan);
@@ -865,13 +863,22 @@
             localStorage.SCOREBOARD = JSON.stringify(scoreboard);
         },
 
+        showScoreboard: function () {
+            var scoreboard = this.retrieveScoreboard();
+        },
+
+        logScoreboard: function () {
+            console.table(this.retrieveScoreboard());
+        },
+
         retrieveScoreboard: function () {
             var scoreboard = [];
             try { scoreboard = localStorage.SCOREBOARD ? JSON.parse(localStorage.SCOREBOARD) : []; }
             catch (ex) { localStorage.clear(); }
 
-            console.table(scoreboard);
+            return scoreboard;
         },
+
 
         /**
          * Pause the game if the tab is not in focus.
