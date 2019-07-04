@@ -857,8 +857,10 @@
 
             scoreboard.push({
                 Name: name,
-                Score: value
+                Score: this.distanceMeter.getActualDistance(value)
             });
+
+            scoreboard.sort(function (a, b) { return a.Score > b.Score ? -1 : 1 });
 
             localStorage.SCOREBOARD = JSON.stringify(scoreboard);
         },
@@ -868,10 +870,8 @@
             try { scoreboard = localStorage.SCOREBOARD ? JSON.parse(localStorage.SCOREBOARD) : []; }
             catch (ex) { localStorage.clear(); }
 
-
+            console.table(scoreboard);
         },
-
-
 
         /**
          * Pause the game if the tab is not in focus.
@@ -2747,7 +2747,7 @@
 
 
 function onDocumentLoad() {
-    new Runner('.interstitial-wrapper');
+    window.TREXRUNNER = new Runner('.interstitial-wrapper');
 }
 
 document.addEventListener('DOMContentLoaded', onDocumentLoad);
