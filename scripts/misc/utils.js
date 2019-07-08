@@ -183,3 +183,4 @@ function boxCompare(tRexBox, obstacleBox) {
 
     return crashed;
 };
+

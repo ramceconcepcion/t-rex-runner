@@ -593,6 +593,10 @@ Runner.prototype = {
                 case events.MOUSEUP:
                     this.onKeyUp(e);
                     break;
+                // case events.TOUCHEND:
+                //     this.onKeyDown(e);
+                //     this.onKeyUp(e);
+                //     break;
             }
         }.bind(this))(e.type, Runner.events);
     },
