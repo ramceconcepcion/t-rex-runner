@@ -1,10 +1,10 @@
 ## t-rex-runner
 
-the trex runner game extracted from chrome offline error page.
+Runner game cloned from https://github.com/wayou/t-rex-runner/, which was extracted from Chrome's offline error page. 
 
-this modified version has a scoreboard feature using the browser's native dialog boxes.
+This version has a scoreboard feature utilizing the browser's native dialog boxes.
 
-see the [source](https://cs.chromium.org/chromium/src/components/neterror/resources/offline.js?q=t-rex+package:%5Echromium$&dr=C&l=7) from chromium
+See the [source](https://cs.chromium.org/chromium/src/components/neterror/resources/offline.js?q=t-rex+package:%5Echromium$&dr=C&l=7) from chromium
 
 Try at: http://ramceconcepcion.github.io/t-rex-runner
 
