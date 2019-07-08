@@ -30,6 +30,21 @@ Scoreboard.prototype = {
 
     show: function () {
         var scoreboard = this.get();
+
+        var count = 0;
+        var str = scoreboard.reduce(function (acc, item) {
+            count++;
+            var rank = count;
+            if (count > 1) {
+                if (scoreboard[count - 1].Score == scoreboard[count - 2].Score) rank = count - 1;
+            }
+
+            return acc + "Rank: " + rank +
+                "; Name: " + item.Name +
+                "; Score: " + item.Score + "\n";
+        }, "");
+
+        alert("TOP 10 SCORES: \n\n" + str);
     },
 
     log: function () {

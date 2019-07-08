@@ -780,6 +780,8 @@ Runner.prototype = {
         //set high score
         this.setHighScore();
 
+        //show scoreboard
+        this.scoreboard.show();
     },
 
     setHighScore: function () {
