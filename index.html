@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <title>chrome easter egg: t-rex runner</title>
+    <title>Runner Game</title>
     <link rel="stylesheet" href="index.css">
     <script src="scripts/misc/constants.js"></script>
     <script src="scripts/misc/utils.js"></script>
@@ -25,7 +25,7 @@
 
 <body id="t" class="offline">
     <div id="messageBox" class="sendmessage">
-        <div style="text-align: center; font-size: 30px;">Press Space to start</div>
+        <div style="text-align: center; font-size: 20px;">Press Space/Tap to start</div>
         <div class="niokbutton" onclick="okbuttonsend()"></div>
     </div>
     <div id="main-frame-error" class="interstitial-wrapper">
@@ -55,6 +55,11 @@
             box.style.visibility = "hidden";
         }
     };
+
+    document.body.addEventListener("touchstart", function (evt) {
+        var box = document.getElementById("messageBox");
+        box.style.visibility = "hidden";
+    });
 </script>
 
 </html>
